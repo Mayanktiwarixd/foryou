@@ -3,44 +3,95 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FOR YOU</title>
+    <title>AI Placement Readiness & Skill Gap Analyzer</title>
     <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Indie+Flower"
-      rel="stylesheet"
-      type="text/css"
-    />
   </head>
   <body>
-    <div class="container">
-      <div class="glass">
-        <div class="shine"></div>
-      </div>
-      <div class="thorns">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="leaves">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="petals">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="text">
-        <h2></h2> Your smile is as beautiful as Rose <br /> 
-       I have Something For your Smile : <a href="new.html">Click Here</a></h2>
-      </div>
-    </div>
+    <header class="hero">
+      <h1>AI-Based Placement Readiness & Skill Gap Analyzer</h1>
+      <p>
+        Upload a resume, paste a job description, and get skill-gap insights,
+        learning roadmap recommendations, and placement probability.
+      </p>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>1) Resume Input</h2>
+        <label for="resumeFile">Upload Resume (.txt/.md/.pdf*)</label>
+        <input id="resumeFile" type="file" accept=".txt,.md,.pdf" />
+        <small
+          >*PDF text extraction works best for text-based PDFs in the
+          browser.</small
+        >
+
+        <label for="resumeText">Or paste resume text</label>
+        <textarea
+          id="resumeText"
+          rows="8"
+          placeholder="Paste resume content here..."
+        ></textarea>
+
+        <details>
+          <summary>Bonus: LinkedIn-like profile parser</summary>
+          <p>
+            Paste exported profile sections (About, Experience, Skills) below
+            to enrich analysis.
+          </p>
+          <textarea
+            id="linkedinText"
+            rows="6"
+            placeholder="Paste LinkedIn-like profile text..."
+          ></textarea>
+        </details>
+      </section>
+
+      <section class="card">
+        <h2>2) Target Job Description</h2>
+        <textarea
+          id="jobDescription"
+          rows="16"
+          placeholder="Paste the job description here..."
+        ></textarea>
+        <button id="analyzeBtn">Analyze Readiness</button>
+      </section>
+
+      <section class="card results">
+        <h2>3) Analysis Output</h2>
+        <div class="metric">
+          <span>Placement Probability</span>
+          <div class="bar-wrap">
+            <div id="probBar" class="bar"></div>
+          </div>
+          <strong id="probability">0%</strong>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <h3>Matched Skills</h3>
+            <ul id="matchedSkills"></ul>
+          </div>
+          <div>
+            <h3>Skill Gaps</h3>
+            <ul id="skillGaps"></ul>
+          </div>
+        </div>
+
+        <h3>Learning Roadmap</h3>
+        <ol id="roadmap"></ol>
+
+        <h3>Recommendations</h3>
+        <ul id="recommendations"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Built with NLP-inspired keyword extraction and a lightweight ML-style
+        scoring heuristic.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
   </body>
 </html>
